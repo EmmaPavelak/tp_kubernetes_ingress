@@ -94,11 +94,21 @@ Il va vous falloir gérer une charge importante sur le Service de commande des t
 Comment gérez-vous cela ? Comment vérifier que les requêtes sont bien réparties
 (avec quelle commande kubectl ?) ?
 
-On modifie le replica des tacos à 3 et on vérifie avec :
+On modifie le replica des tacos à 3 
 
+On applique les mofification
+```
+kubectl apply -f tacos.yml
+```
+Et on vérifie
 ```
 kubectl get rs
 ```
+Pour vérifier que les requêtes sont bien réparties on execute :
 
+```
+kubectl top
+```
+![](screen/screen07.png)
 
 ## Créer une nouvelle version de votre carte des pizzas et publiez-la dans une nouvelle version de votre image. Appliquer la modification à votre déploiement. Qu’observez vous sur la disponibilité du service qui présente la carte des pizzas pendant la mise à jour ?
